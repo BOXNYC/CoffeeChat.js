@@ -28,7 +28,7 @@ const showLoading = () => {
 
 const APP_KEY = '################################';
 const chatAPI = new CoffeeChat(APP_KEY);
-document.querySelector('#prompt').onkeyup = e => {
+document.querySelector('input[type="text"]').onkeyup = e => {
   if (e.key !== 'Enter') return;
   renderQuestion(e.target.value);
   showLoading();
