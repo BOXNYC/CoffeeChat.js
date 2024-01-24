@@ -2,7 +2,11 @@ class CoffeeChat {
 	constructor(API_KEY) {
 		this.domain = 'https://chat.coffeeww.com';
 		this.threadID = null;
-		this.API_KEY = API_KEY;
+		this.headers = {
+			'Accept': 'application/json, text/plain, */*',
+			'Content-Type': 'application/json',
+			'X-API-KEY': API_KEY
+		};
 	}
 	static forEach(resp, callback) {
 		resp.data.forEach(({content, role})=>{
@@ -17,11 +21,7 @@ class CoffeeChat {
 			`${this.domain}/messages`;
 		fetch(`${endpoint}`, {
 			method: this.threadID ? 'PUT' : 'POST',
-			headers: {
-				'Accept': 'application/json, text/plain, */*',
-				'Content-Type': 'application/json',
-				'X-API-KEY': this.API_KEY
-			},
+			headers: this.headers,
 			body: JSON.stringify({prompt})
 		}).then(res => {
 			return res.json();
@@ -36,11 +36,7 @@ class CoffeeChat {
 		const endpoint = `${this.domain}/thread/${threadID}`
 		fetch(`${endpoint}`, {
 			method: 'DELETE',
-			headers: {
-				'Accept': 'application/json, text/plain, */*',
-				'Content-Type': 'application/json',
-				'X-API-KEY': this.API_KEY
-			}
+			headers: this.headers
 		}).then(res => {
 			return res.json();
 		}).then(res => {
@@ -54,11 +50,7 @@ class CoffeeChat {
 		const endpoint = `${this.domain}/thread/${this.threadID}`
 		fetch(`${endpoint}`, {
 			method: 'GET',
-			headers: {
-				'Accept': 'application/json, text/plain, */*',
-				'Content-Type': 'application/json',
-				'X-API-KEY': this.API_KEY
-			}
+			headers: this.headers
 		}).then(res => {
 			return res.json();
 		}).then(res => {
