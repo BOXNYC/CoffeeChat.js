@@ -8,15 +8,19 @@ instance.addMessage(message, onComplete, onError)
 ```
 ```JavaScript
 instance.retrieveThread(onComplete, onError)
-// Note: retrieveThread uses the instance's threadID property, it must be set before calling: <instance>.threadID = '########';
+// Note: retrieveThread uses the instance's threadID property, it must be set before
+// calling: <instance>.threadID = '########';
 ```
 ```JavaScript
 instance.deleteThread(threadID, onComplete, onError)
-// Note: retrieveThread uses the instance's threadID property, it must be set before calling: <instance>.threadID = '########';
+// Note: retrieveThread uses the instance's threadID property, it must be set before
+// calling: <instance>.threadID = '########';
 ```
 ```JavaScript
 static CoffeeChat.forEach(resp, callback)
-// Loops through all the current thread's messages calling the callback method with a single param object with two properties ({text, role})
+// Recieves either a retrieveThread() or retrieveThread server response and loops
+// through all it's thread messages, calling the callback method on each with a single
+// param object with two properties ({text, role})
 // *role* is either "user" or "assistant" 
 ```
 
