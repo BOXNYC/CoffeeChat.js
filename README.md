@@ -2,7 +2,7 @@
 JavaScript class helper for connecting to CoffeeChat at https://chat.coffeeww.com/
 
 ## Overview
-CoffeeChat.js is a ES6 class which connects to the CoffeeChat API to handle REST API calls asynchronsly. Intitialize a class instance with your API key (CoffeeChat is not a public project, it's use is soley for Coffee Worldwide's clientelle), and use it immediatly to chat, load, and delete threads. CoffeeChat uses OpenAI's Assistant API. Current support:`
+CoffeeChat.js is a ES6 class which connects to the CoffeeChat API to handle REST API calls asynchronsly. Intitialize a class instance with your APP key (CoffeeChat is not a public project, it's use is soley for Coffee Worldwide's clientelle), and use it immediatly to chat, load, and delete threads. CoffeeChat uses OpenAI's Assistant API. Current support:`
 ```JavaScript
 instance.addMessage(message, onComplete, onError)
 ```
