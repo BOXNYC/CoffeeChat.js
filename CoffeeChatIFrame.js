@@ -12,7 +12,7 @@ class CoffeeChatIFrame {
 	}
 	createIFrameEmbed(API_KEY) {
 		const $container = document.createElement('div');
-		$container.setAttribute('style', 'position: absolute; width: 1px !important; height: 1px !important; padding: 0 !important; margin: 0 !important;');
+		$container.setAttribute('style', 'position: absolute; width: 1px !important; height: 1px !important; padding: 0 !important; margin: 0 !important; min-width: 1px !important; min-height: 1px !important;');
 		$container.innerHTML = '<iframe id="coffee-chat-iframeapi" width="1" height="1" frameborder="0" src="https://chat.coffeeww.com/iframeapi?key='+API_KEY+'"></iframe>';
 		(this.options.iFrameEmbedParent || document.body).appendChild($container);
 	}
