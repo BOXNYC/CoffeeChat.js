@@ -7,7 +7,7 @@ class CoffeeChatIFrame {
 		this.onError = null;
 		this.thread = [];
 		this.lastMessage = null;
-		this.iframeContainer = this.createIFrameEmbed(API_KEY);
+		if (typeof options.iframeSelector === 'undefined') this.createIFrameEmbed(API_KEY);
 		window.addEventListener('message', this.messageReceived.bind(this), false);
 	}
 	createIFrameEmbed(API_KEY) {
