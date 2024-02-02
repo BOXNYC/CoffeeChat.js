@@ -7,6 +7,7 @@ class CoffeeChatIFrame {
 		this.onError = null;
 		this.thread = [];
 		this.lastMessage = null;
+		this._iframe = null;
 		if (typeof options.iframeSelector === 'undefined') this.createIFrameEmbed(API_KEY);
 		window.addEventListener('message', this.messageReceived.bind(this), false);
 	}
@@ -17,6 +18,11 @@ class CoffeeChatIFrame {
 		(this.options.iFrameEmbedParent || document.body).appendChild($container);
 	}
 	get iframe() {
+		const {options} = this;
+		if (!this._iframe && typeof options.iframeSelector === 'string')
+			this._iframe = document.querySelector(options.iframeSelector);
+		if (!this._iframe && typeof options.iframeSelector === 'object')
+			this._iframe = options.iframeSelector;
 		this._iframe = this._iframe || document.getElementById('coffee-chat-iframeapi');
 		return this._iframe;
 	}
