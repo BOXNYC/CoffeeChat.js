@@ -29,6 +29,7 @@ class CoffeeChatIFrame {
 	messageReceived(event) {
 		if (typeof event.data !== 'object') return;
 		const {thread, lastMessage, threadID} = event.data;
+		if ( threadID ) this.threadID = threadID;
 		this.thread.push(...thread);
 		if ( this.onComplete )
 			this.onComplete.call(this, thread, lastMessage, threadID);
